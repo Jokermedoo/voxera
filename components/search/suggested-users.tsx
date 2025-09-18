@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 import { Users, UserPlus } from "lucide-react"
-import { createBrowserClient } from "@/lib/supabase/client"
+import { createClient } from "@/lib/supabase/client"
 
 interface SuggestedUsersProps {
   userId: string
@@ -15,7 +15,7 @@ interface SuggestedUsersProps {
 export function SuggestedUsers({ userId }: SuggestedUsersProps) {
   const [suggestedUsers, setSuggestedUsers] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
-  const supabase = createBrowserClient()
+  const supabase = createClient()
 
   useEffect(() => {
     loadSuggestedUsers()

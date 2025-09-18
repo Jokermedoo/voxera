@@ -1,11 +1,11 @@
 import { redirect } from "next/navigation"
-import { createClient } from "@/lib/supabase/server"
+import { createServerClient } from "@/lib/supabase/server"
 import { RoomsGrid } from "@/components/rooms/rooms-grid"
 import { CreateRoomButton } from "@/components/rooms/create-room-button"
 import { Mic, Volume2 } from "lucide-react"
 
 export default async function RoomsPage() {
-  const supabase = await createClient()
+  const supabase = createServerClient()
 
   const { data, error } = await supabase.auth.getUser()
   if (error || !data?.user) {

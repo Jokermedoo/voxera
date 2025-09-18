@@ -80,7 +80,7 @@ export function SoundEffects({ roomId, canPlaySounds }: SoundEffectsProps) {
       }
 
       // Send sound effect to room
-      const supabase = createClient()
+      const supabase = createBrowserClient()
       await supabase.from("chat_messages").insert({
         room_id: roomId,
         user_id: (await supabase.auth.getUser()).data.user?.id,

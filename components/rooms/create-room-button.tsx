@@ -18,7 +18,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Plus, MessageSquare, Music, Radio, Mic } from "lucide-react"
-import { createClient } from "@/lib/supabase/client"
+import { createBrowserClient } from "@/lib/supabase/client"
 import { useRouter } from "next/navigation"
 
 export function CreateRoomButton() {
@@ -46,7 +46,7 @@ export function CreateRoomButton() {
     setIsLoading(true)
 
     try {
-      const supabase = createClient()
+      const supabase = createBrowserClient()
       const {
         data: { user },
       } = await supabase.auth.getUser()

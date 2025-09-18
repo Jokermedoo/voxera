@@ -7,13 +7,14 @@ import { TrendingTopics } from "@/components/search/trending-topics"
 import { SuggestedUsers } from "@/components/search/suggested-users"
 
 interface ExplorePageProps {
-  searchParams: {
+  searchParams: Promise<{
     q?: string
     type?: string
-  }
+  }>
 }
 
 export default async function ExplorePage({ searchParams }: ExplorePageProps) {
+  const params = await searchParams
   const supabase = createServerClient()
 
   const {
@@ -24,8 +25,8 @@ export default async function ExplorePage({ searchParams }: ExplorePageProps) {
     redirect("/auth/login")
   }
 
-  const searchQuery = searchParams.q || ""
-  const searchType = searchParams.type || "all"
+  const searchQuery = params.q || ""
+  const searchType = params.type || "all"
 
   return (
     <DashboardLayout>

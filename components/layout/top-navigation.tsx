@@ -6,12 +6,12 @@ import { Badge } from "@/components/ui/badge"
 import { Search, Bell, Plus } from "lucide-react"
 import Link from "next/link"
 import { useNotifications } from "@/hooks/use-notifications"
-import { createBrowserClient } from "@/lib/supabase/client"
+import { createClient } from "@/lib/supabase/client"
 import { useEffect, useState } from "react"
 
 export function TopNavigation() {
   const [user, setUser] = useState<any>(null)
-  const supabase = createBrowserClient()
+  const supabase = createClient()
 
   useEffect(() => {
     const getUser = async () => {

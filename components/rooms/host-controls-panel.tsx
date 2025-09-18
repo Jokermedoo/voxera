@@ -83,7 +83,7 @@ export function HostControlsPanel({
   const handleUpdateRoomSettings = async () => {
     setIsLoading(true)
     try {
-      const supabase = createClient()
+      const supabase = createBrowserClient()
       const { error } = await supabase
         .from("rooms")
         .update({
@@ -204,7 +204,7 @@ export function HostControlsPanel({
 
   const handleEndRoom = async () => {
     try {
-      const supabase = createClient()
+      const supabase = createBrowserClient()
       const { error } = await supabase.from("rooms").update({ is_active: false }).eq("id", room.id)
 
       if (error) throw error

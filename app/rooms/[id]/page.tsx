@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation"
-import { createClient } from "@/lib/supabase/server"
+import { createServerClient } from "@/lib/supabase/server"
 import { RoomInterface } from "@/components/rooms/room-interface"
 
 interface RoomPageProps {
@@ -8,7 +8,7 @@ interface RoomPageProps {
 
 export default async function RoomPage({ params }: RoomPageProps) {
   const { id } = await params
-  const supabase = await createClient()
+  const supabase = createServerClient()
 
   const { data, error } = await supabase.auth.getUser()
   if (error || !data?.user) {

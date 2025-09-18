@@ -50,7 +50,7 @@ export function Leaderboard({ roomId }: LeaderboardProps) {
 
   const loadLeaderboard = async () => {
     try {
-      const supabase = createClient()
+      const supabase = createBrowserClient()
       const { data, error } = await supabase
         .from("leaderboards")
         .select(`

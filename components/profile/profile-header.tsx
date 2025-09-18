@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Card, CardContent } from "@/components/ui/card"
 import { UserPlus, UserMinus, Settings, MapPin, Calendar, LinkIcon } from "lucide-react"
-import { createBrowserClient } from "@/lib/supabase/client"
+import { createClient } from "@/lib/supabase/client"
 import { useRouter } from "next/navigation"
 
 interface ProfileHeaderProps {
@@ -19,7 +19,7 @@ export function ProfileHeader({ profile, isOwnProfile, isFollowing, currentUserI
   const [following, setFollowing] = useState(isFollowing)
   const [loading, setLoading] = useState(false)
   const router = useRouter()
-  const supabase = createBrowserClient()
+  const supabase = createClient()
 
   const handleFollow = async () => {
     if (!currentUserId) {

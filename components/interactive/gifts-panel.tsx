@@ -97,7 +97,7 @@ export function GiftsPanel({ roomId, participants, currentUserId }: GiftsPanelPr
 
     setIsLoading(true)
     try {
-      const supabase = createClient()
+      const supabase = createBrowserClient()
       const { error } = await supabase.from("gift_transactions").insert({
         gift_id: selectedGift.id,
         sender_id: currentUserId,

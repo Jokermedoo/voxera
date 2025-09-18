@@ -172,7 +172,7 @@ export function LivePolls({ roomId, currentUserId, canCreatePolls }: LivePollsPr
 
   const handleEndPoll = async (pollId: string) => {
     try {
-      const supabase = createClient()
+      const supabase = createBrowserClient()
       const { error } = await supabase.from("polls").update({ is_active: false }).eq("id", pollId)
 
       if (error) throw error

@@ -127,7 +127,7 @@ export function RoomInterface({
 
   const handleLeaveRoom = async () => {
     try {
-      const supabase = createClient()
+      const supabase = createBrowserClient()
       await supabase.from("room_participants").delete().eq("room_id", room.id).eq("user_id", currentUser.id)
       router.push("/rooms")
     } catch (error) {

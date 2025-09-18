@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Bell, Users, Gift, Mic, Trophy, AlertTriangle, CheckCircle2, Trash2 } from "lucide-react"
-import { createBrowserClient } from "@/lib/supabase/client"
+import { createClient } from "@/lib/supabase/client"
 import { useRouter } from "next/navigation"
 import { formatDistanceToNow } from "date-fns"
 import { ar } from "date-fns/locale"
@@ -19,7 +19,7 @@ interface NotificationsListProps {
 export function NotificationsList({ notifications: initialNotifications, unreadCount }: NotificationsListProps) {
   const [notifications, setNotifications] = useState(initialNotifications)
   const [loading, setLoading] = useState(false)
-  const supabase = createBrowserClient()
+  const supabase = createClient()
   const router = useRouter()
 
   const getNotificationIcon = (type: string) => {

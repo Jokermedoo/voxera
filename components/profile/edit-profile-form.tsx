@@ -10,7 +10,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { createBrowserClient } from "@/lib/supabase/client"
+import { createClient } from "@/lib/supabase/client"
 import { Save, Upload } from "lucide-react"
 
 interface EditProfileFormProps {
@@ -27,7 +27,7 @@ export function EditProfileForm({ profile }: EditProfileFormProps) {
   })
   const [loading, setLoading] = useState(false)
   const router = useRouter()
-  const supabase = createBrowserClient()
+  const supabase = createClient()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()

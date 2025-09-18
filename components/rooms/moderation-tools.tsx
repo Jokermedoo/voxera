@@ -98,7 +98,7 @@ export function ModerationTools({ roomId, isHost, isCoHost }: ModerationToolsPro
 
   const handleTemporaryMute = async (participantId: string, duration: number) => {
     try {
-      const supabase = createClient()
+      const supabase = createBrowserClient()
 
       // Mute participant
       await supabase

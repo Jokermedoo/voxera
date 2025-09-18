@@ -1,14 +1,14 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { createBrowserClient } from "@/lib/supabase/client"
+import { createClient } from "@/lib/supabase/client"
 import { useToast } from "@/hooks/use-toast"
 
 export function useNotifications(userId?: string) {
   const [notifications, setNotifications] = useState<any[]>([])
   const [unreadCount, setUnreadCount] = useState(0)
   const [loading, setLoading] = useState(true)
-  const supabase = createBrowserClient()
+  const supabase = createClient()
   const { toast } = useToast()
 
   // Fetch notifications

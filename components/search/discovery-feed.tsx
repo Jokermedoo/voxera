@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Users, Mic, Play, UserPlus, Hash, Clock, Search } from "lucide-react"
-import { createBrowserClient } from "@/lib/supabase/client"
+import { createClient } from "@/lib/supabase/client"
 import Link from "next/link"
 
 interface DiscoveryFeedProps {
@@ -22,7 +22,7 @@ export function DiscoveryFeed({ searchQuery, searchType, userId }: DiscoveryFeed
     topics: [],
   })
   const [loading, setLoading] = useState(false)
-  const supabase = createBrowserClient()
+  const supabase = createClient()
 
   useEffect(() => {
     if (searchQuery) {

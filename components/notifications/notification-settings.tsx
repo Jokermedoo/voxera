@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { Separator } from "@/components/ui/separator"
 import { Settings, Save, Bell, Smartphone } from "lucide-react"
-import { createBrowserClient } from "@/lib/supabase/client"
+import { createClient } from "@/lib/supabase/client"
 import { useToast } from "@/hooks/use-toast"
 
 interface NotificationSettingsProps {
@@ -32,7 +32,7 @@ export function NotificationSettings({ preferences: initialPreferences, userId }
     },
   )
   const [loading, setLoading] = useState(false)
-  const supabase = createBrowserClient()
+  const supabase = createClient()
   const { toast } = useToast()
 
   const handleToggle = (key: string, value: boolean) => {
